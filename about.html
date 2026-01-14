@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazwan Ariq</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-top: 90px;
+            /* ruang navbar */
+        }
+        /* NAVBAR */
+        
+        .navbar {
+            background: linear-gradient(180deg, #141414e5, #0f0f0fbe);
+            border-bottom: 1px solid #222;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .nav-link {
+            color: #bbb !important;
+            font-size: 16px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            transition: 0.25s;
+            margin-left: 10px;
+        }
+        
+        .nav-link i {
+            margin-right: 6px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: #1f1f1f;
+            color: #0dcaf0 !important;
+            box-shadow: 0 0 12px #0dcaf050;
+        }
+        /* CONTENT */
+        
+        .content {
+            padding: 40px 20px;
+        }
+        /* PROFILE CARD */
+        
+        .profile-card {
+            max-width: 900px;
+            width: 100%;
+            margin: auto;
+            background-color: #1a1a1ac2;
+            padding: 45px;
+            border-radius: 18px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .profile-text h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .profile-text p {
+            font-size: 17px;
+            color: #eaeaea;
+            line-height: 1.8;
+        }
+        
+        .profile-image img {
+            width: 330px;
+            height: 330px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 5px solid #fff;
+        }
+        /* RESPONSIVE */
+        
+        @media (max-width: 768px) {
+            .profile-card {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 25px;
+            }
+            .profile-image img {
+                width: 180px;
+                height: 180px;
+            }
+            .profile-text h1 {
+                font-size: 26px;
+            }
+            .profile-text p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/foto/foto web 2.jpg"> Nazwan Ariq
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="bi bi-house-door"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="bi bi-person"></i>About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html"><i class="bi bi-collection"></i>Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <div class="profile-card">
+            <div class="profile-text">
+                <h1>About Me</h1>
+                <p>
+                    Hallo, perkenalkan nama saya <b>Nazwan Ariq Fadillah</b>. Saya Mahasiswa Politeknik Insan Tazakka jurusan
+                    <b>Teknologi Rekayasa Komputer</b>.
+                    <br><br> Saat ini saya fokus mempelajari HTML, CSS, JavaScript, dan PHP untuk menjadi <b>Web Developer</b>.
+                </p>
+            </div>
+
+            <div class="profile-image">
+                <img src="/foto/WhatsApp Image 2025-11-22 at 16.18.58_f29e8340.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const page = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.getAttribute("href") === page) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

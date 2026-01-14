@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazwan Ariq</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #0d0d0d;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #0d0d0d;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding-top: 90px;
+            /* space navbar */
+        }
+        /* NAVBAR */
+        
+        .navbar {
+            background: linear-gradient(180deg, #141414ec, #0f0f0fce);
+            border-bottom: 1px solid #222;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navbar-brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .nav-link {
+            color: #bbb !important;
+            font-size: 16px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            transition: 0.25s;
+            margin-left: 10px;
+        }
+        
+        .nav-link i {
+            margin-right: 6px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: #1f1f1f;
+            color: #0dcaf0 !important;
+        }
+        /* CONTENT */
+        
+        .content {
+            padding: 40px;
+        }
+        /* GRID */
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        /* CARD */
+        
+        .portfolio-card {
+            background-color: #1a1a1aaf;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(247, 247, 247, 0.644);
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #fff;
+            cursor: pointer;
+        }
+        /* ZOOM POPUP */
+        
+        .image-popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-popup img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            border: 3px solid #fff;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/foto/foto web 2.jpg"> Nazwan Ariq
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html"><i class="bi bi-house-door"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="bi bi-person"></i>About Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html"><i class="bi bi-collection"></i>Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i>Contact Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="content">
+        <h2 class="mb-4">My Portfolio</h2>
+
+        <div class="portfolio-grid">
+
+            <div class="portfolio-card">
+                <img src="/foto/pengaduan masyarakat.png" onclick="openImage(this.src)">
+                <h3>Web Pengaduan Masyarakat</h3>
+                <p>Website untuk masyarakat melapor dan admin menindaklanjuti.</p>
+            </div>
+
+            <div class="portfolio-card">
+                <img src="/foto/Screenshot 2025-11-19 235045.png" onclick="openImage(this.src)">
+                <h3>Website Portfolio</h3>
+                <p>Website pribadi dengan tema gelap modern & responsive.</p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- IMAGE POPUP -->
+    <div class="image-popup" id="popup">
+        <img id="popup-img">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function openImage(src) {
+            document.getElementById("popup-img").src = src;
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        document.getElementById("popup").onclick = function() {
+            this.style.display = "none";
+        }
+
+        const page = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".nav-link").forEach(link => {
+            if (link.getAttribute("href") === page) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>
